@@ -9,17 +9,17 @@
 int main(int ac, char **av)
 {
 	info_t info[] = { INFO_INIT };
-	int nd = 2;
+	int fd = 2;
 
 	asm ("mov %1, %0\n\t"
-		"add $3, %0"
-		: "=r" (nd)
-		: "r" (nd));
+	     "add $3, %0"
+	     : "=r" (fd)
+	     : "r" (fd));
 
 	if (ac == 2)
 	{
-		nd = open(av[1], O_RDONLY);
-		if (nd == -1)
+		fd = open(av[1], O_RDONLY);
+		if (fd == -1)
 		{
 			if (errno == EACCES)
 				exit(126);
@@ -34,7 +34,7 @@ int main(int ac, char **av)
 			}
 			return (EXIT_FAILURE);
 		}
-		info->readnd = nd;
+		info->readfd = fd;
 	}
 	populate_env_list(info);
 	read_history(info);
