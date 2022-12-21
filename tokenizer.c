@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * **strtow - func that splits a string into words. Repeat delimiters are ignored
+ * **strtow - func that splits a string into words
  * @str: input string
  * @d: delimeter
  * Return: a pointer to an array of strings, or NULL on failure
